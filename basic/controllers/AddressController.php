@@ -9,6 +9,9 @@ class AddressController extends CommonController
 {
     public function actionAdd()
     {
+        /**
+         * 先判断登录状态
+         */
         if(Yii::$app->session['isLogin'] != 1){
             return $this->redirect(['member/auth']);
         }
