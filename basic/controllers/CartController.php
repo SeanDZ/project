@@ -39,7 +39,7 @@ class CartController extends CommonController
          * 商品id 商品数量 单价 用户id
          * 判断用户是否登录
          */
-        //登录不完整 不能插入cart数据表
+        //登录不完整 不能插入cate数据表
         if(Yii::$app->session['isLogin'] != 1){
             return $this->redirect(['member/auth']);
         }
