@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $all = $data->offset($pager->offset)->limit($pager->limit)->asArray()->all();
         $model=new Category;
         $cates=$model->getTreeList();
-        return $this->render('cates',['cates'=>$cates,'pager'=>$pager]);
+        return $this->render('cates',['cates'=>$cates,'pager'=>$pager,'all'=>$all]);
     }
     public function actionAdd()
     {
