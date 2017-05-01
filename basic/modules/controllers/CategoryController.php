@@ -3,15 +3,21 @@ namespace app\modules\controllers;
 
 use app\models\Category;
 use Yii;
+use yii\data\Pagination;
 use yii\web\Controller;
 class CategoryController extends Controller
 {
     public function actionList()
     {
         $this->layout='layouts1';
+        $data=Category::find();
+        $count=$data->count();
+        $pageSize = Yii::$app->params['pageSize']['category'];
+        $pager = new Pagination(['totalCount' => $count, 'pageSize' => $pageSize]);
+        $all = $data->offset($pager->offset)->limit($pager->limit)->asArray()->all();
         $model=new Category;
         $cates=$model->getTreeList();
-        return $this->render('cates',['cates'=>$cates]);
+        return $this->render('cates',['cates'=>$cates,'pager'=>$pager]);
     }
     public function actionAdd()
     {

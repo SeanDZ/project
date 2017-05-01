@@ -87,4 +87,8 @@ class CartController extends CommonController
         Cart::deleteAll('cartid = :cid', [':cid' => $cartid]);
         return $this->redirect(['cart/index']);
     }
+    public function actionChange()
+    {
+        return $this->redirect(['']);
+    }
 }

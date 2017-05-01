@@ -8,6 +8,7 @@ return [
         'product'=>5,
         'frontproduct'=>9,
         'order'=>10,
+        'category'=>5,
     ],
     'defaultValue'=>[
         'avatar'=>'assets/admin/img/contact-img.png',
